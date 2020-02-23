@@ -1,5 +1,7 @@
+// 定义全局样式
+
 div::-webkit-scrollbar {
-    width: 5px;
+    width: 1px;
     height: 5px;
     /**/
   }
@@ -8,13 +10,13 @@ div::-webkit-scrollbar {
     // background-color: #f2784b;;
     border-radius: 2px;
   }
-  div::-webkit-scrollbar-thumb {
-    background: #f2784b;
+  div::-webkit-scrollbar-thumb { 
+    background: #f2784b !important;
     border-radius: 10px;
   }
   div::-webkit-scrollbar-thumb:hover {
     background: #ddd;
-  }
+  } 
   div::-webkit-scrollbar-corner {
     background: #179a16;
   }

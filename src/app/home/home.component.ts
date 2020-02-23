@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private userServices: UserService
+  ) { }
 
   ngOnInit() {
+    // 获取用户信息
+    const data = this.userServices.getUserInfo();
+    console.log(data);
   }
 
 }

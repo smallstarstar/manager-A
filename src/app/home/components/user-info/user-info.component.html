@@ -1,0 +1,62 @@
+<div class="search_area">
+    <div nz-row nzGutter="16">
+        <div nz-col class="gutter-row" nzSpan="6">
+            <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" [(ngModel)]="username">
+                <input type="text" nz-input placeholder="input search text" />
+              </nz-input-group>
+              <ng-template #suffixIconButton>
+                <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+              </ng-template>
+        </div>
+        <div nz-col class="gutter-row" nzSpan="6">
+
+            <button nz-button nzType="primary" nzSearch><i nz-icon nzType="down" nzTheme="outline"></i>打印</button>
+        </div>
+        <div nz-col class="gutter-row" nzSpan="6">
+          <div class="gutter-box">col-6</div>
+        </div>
+        <div nz-col class="gutter-row" nzSpan="6">
+          <div class="gutter-box">col-6</div>
+        </div>
+      </div>
+</div>
+<div class="table">
+    <nz-table #rowSelectionTable #editRowTable nzBordered [nzShowPagination]="false" nzShowSizeChanger
+        [nzData]="listOfAllData" (nzCurrentPageDataChange)="currentPageDataChange($event)">
+        <thead>
+            <tr>
+                <th nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked" [nzIndeterminate]="isIndeterminate"
+                    (nzCheckedChange)="checkAll($event)"></th>
+                <th>姓名</th>
+                <th>电话</th>
+                <th nzWidth="200px">邮箱</th>
+                <th>角色</th>
+                <th>手机</th>
+                <th>手机机型</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of listOfAllData">
+                <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" (nzCheckedChange)="refreshStatus()"></td>
+                <td>{{ data.username }}</td>
+                <td>{{ data.phone }}</td>
+                <td>{{ data.email }}</td>
+                <td>{{ data.roleId }}</td>
+                <td>{{ data.phoneModel }}</td>
+                <td>{{ data.phoneModel }}</td>
+                <td>
+                    <button nz-button nzType="danger" (click)="deleteuserInfo(data._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+
+</div>
+
+<div class="page">
+    <nz-pagination [nzPageIndex]="1" [nzTotal]="this.listOfAllData.length" [nzPageSize]="20"
+        [nzShowTotal]="totalTemplate"></nz-pagination>
+    <br />
+    <ng-template #totalTemplate let-total> Total {{ total }} items </ng-template>
+</div>

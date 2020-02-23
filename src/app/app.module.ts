@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
-
+import { UserService } from './service/user.service';
+import './http-client.ts/http-request';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,10 @@ import { LoginModule } from './login/login.module';
     NgZorroAntdModule,
     HomeModule,
     LoginModule
-    
+
   ],
-  providers: [],
+  providers: [UserService],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
