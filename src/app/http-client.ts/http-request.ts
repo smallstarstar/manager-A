@@ -22,4 +22,4 @@ axios.interceptors.request.use(
     },
     err => {
         return Promise.reject(err)
-    })
+})

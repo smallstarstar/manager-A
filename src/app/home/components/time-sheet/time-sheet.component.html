@@ -1,0 +1,8 @@
+<div class="container_content" #scrollMe>
+    <nz-timeline>
+        <nz-timeline-item *ngFor="let item of timeSheetList;let i = index">
+            <div style="color: #f2784b;font-size: 17px;font-weight: 550;">{{ timeFormat.changeTime(item.cTime) }}</div>
+            <div>管理员<span style="color: #f2784b;font-size: large;padding: 0px 3px;">{{item.cperson}}</span>{{item.messageKey}}</div>
+        </nz-timeline-item>
+    </nz-timeline>
+</div>

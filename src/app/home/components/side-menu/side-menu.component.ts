@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import RouterConfigName from '../../../common/router-config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu',
@@ -9,8 +10,12 @@ import RouterConfigName from '../../../common/router-config';
 export class SideMenuComponent implements OnInit {
 
   private routerList: any[] = RouterConfigName.routers;
-  constructor() { }
-
+  constructor(
+    private router: Router
+  ) { }
+  chooseRouter(e: any) {
+    this.router.navigate([e.path])
+  }
   ngOnInit() {
   }
 

@@ -1,0 +1,48 @@
+<!-- 添加仓库类型 -->
+<div class="container_store">
+    <div class="left_add">
+        <div nz-row nzGutter="10" class="input">
+            <div nz-col class="gutter-row" nzSpan="10">
+                <label for="">名称</label>
+                <input type="text" [(ngModel)]="storeInfo.name" nz-input placeholder="input search text" />
+            </div>
+        </div>
+        <div nz-row nzGutter="10" class="input">
+            <div nz-col class="gutter-row" nzSpan="10">
+                <label for="">类型</label>
+                <input type="text" [(ngModel)]="storeInfo.type" nz-input placeholder="input search text" />
+            </div>
+        </div>
+        <div nz-row nzGutter="10" class="input">
+            <div nz-col class="gutter-row" nzSpan="10">
+                <label for="">子类型</label>
+                <input type="text" [(ngModel)]="storeInfo.subtype" nz-input placeholder="input search text" />
+            </div>
+        </div>
+        <div nz-row nzGutter="10" class="input">
+            <div nz-col class="gutter-row" nzSpan="10">
+                <label for="">地点</label>
+                <input type="text" [(ngModel)]="storeInfo.place" nz-input placeholder="input search text" />
+            </div>
+        </div>
+        <div nz-row nzGutter="10" class="input">
+            <div nz-col class="gutter-row" nzSpan="10">
+                <label for="">数量</label>
+                <input type="text" [(ngModel)]="storeInfo.count" nz-input placeholder="input search text" />
+            </div>
+        </div>
+        <div nz-row nzGutter="10" class="input">
+            <div nz-col class="gutter-row" nzSpan="10">
+                <label for="">备注</label>
+                <input type="text" [(ngModel)]="storeInfo.remark" nz-input placeholder="input search text" />
+            </div>
+        </div>
+        <div class="button_group">
+            <button nz-button nzType="primary" (click)="submit()">提交</button>
+            <button nz-button nzType="default" (click)="cancle()">取消</button>
+        </div>
+    </div>
+    <div class="right_time">
+        <app-time-sheet></app-time-sheet>
+    </div>
+</div>

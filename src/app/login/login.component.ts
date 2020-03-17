@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
 import { axiosSerices } from '../service/axios.services';
 import { NzMessageService } from 'ng-zorro-antd';
+import { PersonBasicInfo } from '../models/person-basic-info';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,11 @@ export class LoginComponent implements OnInit {
     } else {
       const result: any = await axiosSerices.userLogin(this.validateForm.value.userName, this.validateForm.value.password);
       if (result.status !== 400) {
-        localStorage.setItem('userInfo', JSON.stringify(result));
+        let userInfo: PersonBasicInfo = new PersonBasicInfo();
+        userInfo.personId = result._id;
+        userInfo.personName = result.username;
+        userInfo.role = result.roleId;
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
         this.userServices.saveUserInfo(result);
         this.showComponent = true;
         this.isOpacity = true;

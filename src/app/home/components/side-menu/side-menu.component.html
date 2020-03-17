@@ -1,7 +1,7 @@
 <ul nz-menu nzMode="inline">
     <li nz-submenu *ngFor="let item of routerList; let i = index;" [nzTitle]="item.typeName" nzOpen>
       <ul>
-        <li nz-menu-item  *ngFor="let items of item.children;" [nzSelected]="items.choose"   >{{items.typeName}}</li>
+        <li nz-menu-item  *ngFor="let items of item.children;" [nzSelected]="items.choose" (click)="chooseRouter(items)">{{items.typeName}}</li>
       </ul>
     </li>
   </ul>

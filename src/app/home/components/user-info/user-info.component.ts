@@ -39,7 +39,6 @@ export class UserInfoComponent implements OnInit {
 
   async ngOnInit() {
     let data: any = await axiosSerices.getUserInfoByPageAndSize(this.pageInfo);
-    console.log(data);
     this.listOfAllData = data.list;
   }
 

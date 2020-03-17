@@ -1,9 +1,11 @@
+
 <div class="search_area">
     <div nz-row nzGutter="16">
         <div nz-col class="gutter-row" nzSpan="6">
             <input type="text" [(ngModel)]="username" nz-input placeholder="input search text" />
         </div>
         <div nz-col class="gutter-row" nzSpan="6">
+
             <button nz-button nzType="primary" nzSearch><i nz-icon nzType="down" nzTheme="outline"></i>打印</button>
         </div>
         <div nz-col class="gutter-row" nzSpan="6">
@@ -21,26 +23,31 @@
             <tr>
                 <th nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked" [nzIndeterminate]="isIndeterminate"
                     (nzCheckedChange)="checkAll($event)"></th>
-                <th>姓名</th>
-                <th>电话</th>
-                <th nzWidth="200px">邮箱</th>
-                <th>角色</th>
-                <th>手机</th>
-                <th>手机机型</th>
+                <th>名称</th>
+                <th>类型</th>
+                <th>子类型</th>
+                <th>地点</th>
+                <th>数量</th>
+                <th>创建人</th>
+                <th>备注</th>
+                <th>时间</th>
                 <th>操作</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let data of listOfAllData">
                 <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" (nzCheckedChange)="refreshStatus()"></td>
-                <td>{{ data.username }}</td>
-                <td>{{ data.phone }}</td>
-                <td>{{ data.email }}</td>
-                <td>{{ data.roleId }}</td>
-                <td>{{ data.phoneModel }}</td>
-                <td>{{ data.phoneModel }}</td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.type }}</td>
+                <td>{{ data.subtype }}</td>
+                <td>{{ data.place }}</td>
+                <td>{{ data.count }}</td>
+                <td>{{ data.person }}</td>
+                <td>{{ data.remark }}</td>
+                <td>{{ timeFormat.changeTime(data.cTime) }}</td>
                 <td>
-                    <button nz-button nzType="danger" (click)="deleteuserInfo(data._id)">Delete</button>
+                    <button nz-button nzType="danger" (click)="deleteStoreInfo(data._id)">删除</button>&nbsp;&nbsp;&nbsp;
+                    <button nz-button nzType="primary" (click)="updataStoreInfo(data._id)">编辑</button>
                 </td>
             </tr>
         </tbody>

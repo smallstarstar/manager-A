@@ -7,7 +7,7 @@ const RouterConfigName = {
             children: [
                 {
                     typeName: '查看用户',
-                    path:'/lookPerson',
+                    path:'/home/home/person',
                     key: 1-1,
                     choose: true
                 }
@@ -20,13 +20,13 @@ const RouterConfigName = {
             children: [
                 {
                     typeName: '添加仓库',
-                    path:'/addStore',
+                    path:'/home/home/addStore',
                     key: 2-1,
                     choose: false
                 },
                 {
                     typeName: '查看仓库信息',
-                    path:'/lookStore',
+                    path:'/home/home/lookStore',
                     key: 2-2,
                     choose: false
                 }
